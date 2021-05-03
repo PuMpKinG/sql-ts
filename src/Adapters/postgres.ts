@@ -76,7 +76,7 @@ export default class implements AdapterInterface {
                                WHERE c.contype = 'f'
                                  AND tbl.relname = tablename.relname
                                  AND col.attname = attributname.attname
-                           ) AS CONSTRAINT_REF_TABLE),                  AS contraintRefTable
+                           ) AS contraintRefTable),                  
                    CASE
                        WHEN EXISTS(SELECT null
                                    FROM pg_index
