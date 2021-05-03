@@ -13,6 +13,7 @@ export interface TableDefinition {
 export interface ColumnDefinition {
   name: string;
   type: string;
+  contraintRefTable: string;
   isNullable: boolean;
   isOptional: boolean;
   isEnum: boolean;
