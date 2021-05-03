@@ -1,5 +1,7 @@
 # sql-ts
 
+**FORK: Include extension to get referenced-table of foreign keys to use correct datatype on *refObjs* **
+
 [![Build Status](https://travis-ci.org/rmp135/sql-ts.svg?branch=master)](https://travis-ci.org/rmp135/sql-ts)
 
 Generate TypeScript types for tables and views in a SQL database.

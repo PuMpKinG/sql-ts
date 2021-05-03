@@ -41,6 +41,7 @@ export interface Config extends knex.Config {
 export interface Column {
     name: string;
     type: string;
+    contraintRefTable: string;
     optional: boolean;
     nullable: boolean;
     isEnum: boolean;
