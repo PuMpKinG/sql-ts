@@ -76,7 +76,7 @@ export default class implements AdapterInterface {
                                WHERE c.contype = 'f'
                                  AND tbl.relname = tablename.relname
                                  AND col.attname = attributname.attname
-                           ) AS contraintRefTable),                  
+                           ) AS contraintRefTable),
                    CASE
                        WHEN EXISTS(SELECT null
                                    FROM pg_index
@@ -85,7 +85,7 @@ export default class implements AdapterInterface {
                                      AND pg_index.indisprimary) THEN 1
                        ELSE 0
                         END                                              isPrimaryKey
-            FROM pg_attribute attributname
+                        FROM pg_attribute attributname
                      JOIN pg_class tablename ON tablename.oid = attributname.attrelid
                      JOIN pg_type ON pg_type.oid = attributname.atttypid
                      JOIN pg_namespace ON pg_namespace.oid = tablename.relnamespace
