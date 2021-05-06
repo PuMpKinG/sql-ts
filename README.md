@@ -353,6 +353,7 @@ The inputs to this file are as followed.
             "type": "int", // The original database type.
             "propertyName": "ID", // The computed Typescript property name 
             "propertyType": "number", // The computed Typescript type 
+            "contraintRefTable": "string", // if Foreign-Key Column, this includes referenced table
             "nullable": false, // Whether the column is nullable.
             "optional": true, // Whether the column is optional for insertion (has a default value).
             "isEnum": false, // Whether the column is an enum type (currently only Postgres).
