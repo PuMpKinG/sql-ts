@@ -6,6 +6,7 @@ import TypeMap from './TypeMap'
 import * as ColumnSubTasks from './ColumnSubTasks'
 import * as SharedTasks from './SharedTasks'
 import { Table } from '.'
+import * as TableTasks from './TableTasks';
 
 /**
  * Returns all columns in a given Table using a knex context.
@@ -23,7 +24,7 @@ export async function getColumnsForTable (db: knex, table: TableDefinition, conf
     nullable: c.isNullable,
     name: SharedTasks.convertCase(c.name, config.columnNameCasing),
     type: c.type,
-    contraintRefTable: c.contraintRefTable,
+    contraintRefTable: c.contraintRefTable ? TableTasks.generateInterfaceName(c.contraintRefTable, config)  : 'any',
     optional: c.isOptional,
     isEnum: c.isEnum,
     isPrimaryKey: c.isPrimaryKey

@@ -41,6 +41,7 @@ var AdapterFactory = require("./AdapterFactory");
 var TypeMap_1 = require("./TypeMap");
 var ColumnSubTasks = require("./ColumnSubTasks");
 var SharedTasks = require("./SharedTasks");
+var TableTasks = require("./TableTasks");
 /**
  * Returns all columns in a given Table using a knex context.
  *
@@ -64,7 +65,7 @@ function getColumnsForTable(db, table, config) {
                             nullable: c.isNullable,
                             name: SharedTasks.convertCase(c.name, config.columnNameCasing),
                             type: c.type,
-                            contraintRefTable: c.contraintRefTable,
+                            contraintRefTable: c.contraintRefTable ? TableTasks.generateInterfaceName(c.contraintRefTable, config) : 'any',
                             optional: c.isOptional,
                             isEnum: c.isEnum,
                             isPrimaryKey: c.isPrimaryKey
