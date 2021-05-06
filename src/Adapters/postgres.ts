@@ -95,12 +95,12 @@ export default class implements AdapterInterface {
               AND pg_namespace.nspname = :schema;
         `
         return (await db.raw(sql, {table, schema})).rows
-            .map((c: { name: string, type: string, notnullable: boolean, hasdefault: boolean, typcategory: string, enumschema: string, enumtype: string, contraintRefTable: string, isprimarykey: number }) => (
+            .map((c: { name: string, type: string, notnullable: boolean, hasdefault: boolean, typcategory: string, enumschema: string, enumtype: string, contraintreftable: string, isprimarykey: number }) => (
                 {
                     name: c.name,
                     type: c.typcategory == "E" && config.schemaAsNamespace ? `${c.enumschema}.${c.enumtype}` : c.enumtype,
                     isNullable: !c.notnullable,
-                    contraintRefTable: c.contraintRefTable,
+                    contraintRefTable: c.contraintreftable,
                     isOptional: c.hasdefault,
                     isEnum: c.typcategory == "E",
                     isPrimaryKey: c.isprimarykey == 1

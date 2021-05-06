@@ -117,7 +117,7 @@ var default_1 = /** @class */ (function () {
                             name: c.name,
                             type: c.typcategory == "E" && config.schemaAsNamespace ? c.enumschema + "." + c.enumtype : c.enumtype,
                             isNullable: !c.notnullable,
-                            contraintRefTable: c.contraintRefTable,
+                            contraintRefTable: c.contraintreftable,
                             isOptional: c.hasdefault,
                             isEnum: c.typcategory == "E",
                             isPrimaryKey: c.isprimarykey == 1
